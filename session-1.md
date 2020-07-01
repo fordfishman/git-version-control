@@ -20,7 +20,7 @@ When we use Git on a new computer for the first time, we need to configure a few
 
 **MacOS**:  Open a bash shell under Applications > Utilities > Terminal
 
-**Windows**:  Open the git shell you downloaded through the bash installation procedures.
+**Windows**:  Open the git shell "Git Bash" you downloaded through the bash installation procedures, or run the command "bash" in your Command Prompt.
 
 **Linux**:  Use your terminal
 
