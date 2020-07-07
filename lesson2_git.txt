@@ -1,7 +1,7 @@
 
 #########################################
-# CREATE A REPOSITORY 					#
-#   Where does git store information?	#
+# CREATE A REPOSITORY                   #
+#   Where does git store information?   #
 #########################################
 
 # This is a comment.
@@ -35,10 +35,10 @@ git status
 
 
 #################################################################
-# TRACKING CHANGES												#
-#	How do I record changes?									#
-#	How to I check the status of my version control?			#
-# 	How do I record notes about what changes I made and why?	#
+# TRACKING CHANGES                                              #
+#	How do I record changes?                                      #
+#	How to I check the status of my version control?              #
+# 	How do I record notes about what changes I made and why?	  #
 #################################################################
 
 # Create and open a new file with nano editor
@@ -177,10 +177,10 @@ git commit -m "Add some initial plans on vehicles"
 
 
 #################################################################
-# EXPLORING HISTORY												#
-#	How can I identify old versions of files?					#
-#	How to I review my changes?									#
-# 	How can I recover old versions of files?					#
+# EXPLORING HISTORY	                                            #
+#	How can I identify old versions of files?					            #
+#	How to I review my changes?									                  #
+# 	How can I recover old versions of files?					          #
 #################################################################
 
 nano mission_log.txt
@@ -254,7 +254,7 @@ git checkout master
 
 
 ###############################################################
-# IGNORING THINGS											  #	
+# IGNORING THINGS						                      					  #	
 # How can I tell Git to ignore files I don't want to track?	  #	
 ###############################################################
 
