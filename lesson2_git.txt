@@ -1,0 +1,308 @@
+
+#########################################
+# CREATE A REPOSITORY 					#
+#   Where does git store information?	#
+#########################################
+
+# This is a comment.
+# git version control commands start with git!
+# We will work through this in a Bash Shell
+# On Windows, open Git Bash app (or your command prompt and type bash)
+# On macOS, go to Applications > Utilities > and open your Terminal
+
+# First, a little navigating in command line . . .
+# print working directory
+pwd
+# change directories
+cd ~/Desktop
+# make a new directory
+mkdir planets
+# change directories
+cd planets
+
+
+# tell git to initialize a repository
+git init
+# git will track all files, subdirectories, subdirectory contents in planets
+
+
+# list all directory contents (including hidden files)
+ls -a
+# notice the .git folder.  This is where history is stored.
+
+# check the status of a repository
+git status
+
+
+#################################################################
+# TRACKING CHANGES												#
+#	How do I record changes?									#
+#	How to I check the status of my version control?			#
+# 	How do I record notes about what changes I made and why?	#
+#################################################################
+
+# Create and open a new file with nano editor
+nano mission_log.txt
+
+# We add some text to our file:
+#"Day 1: This new adventure is really exciting."
+# Ctrl+O to write out and Enter/Return to save the file
+
+# to see the contents of a file, use concatenate
+cat mission_log.txt
+
+# Check repository status
+git status
+#    git reports an untracked file and
+#    suggests use git add to include what will be committed
+
+# Add the file to be staged
+git add mission_log.txt
+# RESULT OF git add:
+#	git now knows that it is supposed to keep track of mission_log.txt
+#	but changes are not committed yet
+
+
+# Check repository status
+git status
+#  	Notice "changes to be committed"
+
+
+# Commit changes
+git commit -a "Start notes on Mars as a base"
+# RESULT of git commit 
+# 	git takes all files on stage and stores a permanent copy
+#	in .git directory
+#	The permanent copy is called a commit and has a short identifier
+# ASIDE: If you run git commit without the -a option, 
+#	an editor will open for a longer comment.
+
+# Check repository status
+git status
+# 	Notice "nothing to commit, working directory clean"
+
+# View repository log
+git log
+
+
+# THERE ARE 2 STEPS:
+# 1. git add filename
+# 2. git commit -a "short, descriptive comment"
+
+############################
+# Q: Where are my changes? #
+############################
+
+# Edit our mission log file
+nano mission_log.txt
+
+# Add "Day 2: Two moons may make gravity measurements challenging"
+# Ctrl+O Return/Enter (to save) and ctrl+X to exit 
+
+# Check repository status
+git status
+# 	notice "changes not staged for commit"
+
+# Review changes before saving them
+git diff 
+
+# Stage changes for commit (specifies what will go in a snapshot)
+git add mission_log.txt
+
+# Commit changes (takes the snapshot and makes a permanent record)
+git commit -m "Add concerns about moons"
+
+git status
+
+git log
+
+# It is always better to explicitly add files to the staging area
+# because you might commit changes your forgot you made
+# but you can gather everything (even without staging using:
+# git commit --all
+
+
+#One more time, let's watch as our files move from staging into storage
+nano mission_log.txt
+
+# Day 3: Weather forecaset uncertain for start of testing
+# Day 4: Warmer than expected seasonal temperatures
+
+git diff
+# see new lines added +
+
+git add mission_log.txt
+# view the difference between the last committed change and whats in the staging area.
+git diff --staged
+# color code changed words:
+git diff --staged --color-words
+
+
+# save changes (commit)
+git commit -m "Discuss concerns about climate for trials"
+
+git status
+
+git log
+
+######################
+# NAVIGATING THE LOG #
+######################
+# Paging the Log:
+#	 if its too long to fit on your screen
+#	Q to get out of pager
+#	Move to next page with spacebar
+#	To search, press /, type some_word, N to navigate
+
+git log -1
+git log --oneline
+git log --oneline -graph
+
+###############
+# A FEW NOTES #
+###############
+# Git does not track directories, only files within them
+# but you can add all the files within a directory at once by 
+# naming the directory
+
+mkdir vehicles
+touch vehicles/lander.txt vehicles/rover.csv
+git status
+git add vehicles
+git status
+
+git commit -m "Add some initial plans on vehicles"
+
+
+
+
+#################################################################
+# EXPLORING HISTORY												#
+#	How can I identify old versions of files?					#
+#	How to I review my changes?									#
+# 	How can I recover old versions of files?					#
+#################################################################
+
+nano mission_log.txt
+# Day 5: An ill-considered change.
+cat mission_log.txt
+
+# We saw commits have identifiers
+# Refer to the most recent commit using identifier HEAD
+git diff HEAD mission_log.txt
+
+# add a ~number to refer to commits before HEAD
+git diff HEAD~1 mission_log.txt
+git diff HEAD~3 mission_log.txt
+
+# or use the first ~7 characters of the random identifier for a commit
+git diff f22b25e mission_log.txt
+
+# HEAD is a symbolic reference to the branch you're currently on.
+# a variable for referencing the current committed branch
+cat .git/HEAD
+
+##################################################
+# Q: How can we restore older versions of files? #
+##################################################
+git status
+# Check out (restore) an old version
+git checkout f22b25e mission_log.txt
+cat mission_log.txt
+git status
+# notice the changes are currently in the staging area
+# Now put things back the way they were using git checkout
+git checkout HEAD mission_log.txt
+
+##################################################
+# WARNING: Don't lose your head!
+# 	checkout has other functions. 
+# 	Be accurate with typing.
+
+# Example Error (don't do this! - forgotten filename)
+git checkout f22b25e   #forgotten filename
+# RESULT:
+# 	You are in 'detached HEAD' state.
+# 	You can make experimental changes and commit them. 
+#	You can discard any commits you make in this state without impactinting
+# any other branches by performing another checkout.
+#
+# If you want to create a new branch to retain commits you create,
+# you may do so now or later by using -b with the checkout command again
+#
+#	git checkout -b <new-branch-name>
+# HEAD is now at f22b25e Start notes on .. as base.
+
+# After investigating, reattach your head with
+git checkout master
+
+# Simplifying the Common Case
+# git status says "use git checkout -- <file> . . . 
+# to discard changes in the working directory"
+# git checkout without a version identifier 
+# restores files ot the state saved in the head.
+
+
+# Reverting a commit
+# Look at the git history of the project to find the commit ID
+# Copy the ID (first few characters)
+# git revert [erroneous commit ID]
+# type in the new commit message
+# save and close
+
+#####  PRACTICE STEPS
+
+
+###############################################################
+# IGNORING THINGS											  #	
+# How can I tell Git to ignore files I don't want to track?	  #	
+###############################################################
+
+mkdir results
+touch a.dat b.dat c.dat results/a.out results/b.out
+ls -a
+git status
+
+# To ignore some files in our version control, 
+# Create a file in the root directory of our project called .gitignore
+# Name files to ignore.
+
+nano .gitignore
+# type the following in the nano editor: (without commenting)
+#*.dat
+#results/
+# save and close
+
+git status
+# notice now git only notices .gitignore
+# commit it so it is shared with collaborators so they understand your
+# workflow
+git add .gitignore
+git commit -m "Ignore data files and the results folder."
+git status
+
+#.gitignore will help us from accidentally adding to the repository files
+# that we do not want to track
+git add a.dat
+
+git status --ignored
+
+
+
+#############################
+# NEXT THURSDAY:
+# Version control really comes into its own when we 
+# begin to collaborate with other people. We already 
+# have most of the machinery we need to do this; 
+# the only thing missing is to copy changes  
+# from one repository to another.
+#
+# REMOTES IN GITHUB
+# COLLABORATING
+# CONFLICTS
+# RESOURCES FOR NEXT STEPS
+#############################
+
+
+
+
