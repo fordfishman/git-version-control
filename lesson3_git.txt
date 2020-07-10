@@ -1,0 +1,86 @@
+# Session 3: Git and GitHub
+########################
+# REMOTES IN GITHUB
+#  How do I share my changes with others on the web?
+########################
+
+# 1. Sign in to GitHub
+
+# 2. Create a repository named planets
+# This effectively makes an empty directory and initializes it as a repository
+
+# 3. Open a bash shell
+
+# 4. Navigate to your local planets repository (cd = change directory)
+cd ~Desktop/planets
+
+# 5.  Push an existing repository from the command line
+git remote add origin https://github.com/[username]/planets.git
+git push -u origin master
+
+# we have named our location origin so we can call it 
+# again without using the repository url 
+git remote -v
+
+# If we want to clear this and assign a new repository url, use: 
+#    git remote remove origin
+
+
+# Make some local changes:
+# For example, let's make some new (fake) files, stage and commit them
+touch mars.txt mars_map.jpg
+git status
+# stage files
+git add mars.txt mars_map.jpg
+# commit files to local repository
+git commit -m "Share log and maps for mission 1"
+
+# Once the remote is set up, we can push changes from our
+# local repository to GitHub using:
+#  PUSH  =  LOCAL  >TO> GITHUB
+git push origin master
+
+
+# To get files from the GitHub repository to local repository
+# PULL = GITHUB >TO> LOCAL
+git pull origin master
+
+
+
+########################
+# COLLABORATING 
+#  How can I use version control to collaborate with other people?
+########################
+
+# In GitHub on repository, go to Settings tab > Manage Access
+# to invite collaborators to your repository
+
+# Anyone  can make a clone of your public Github repository 
+# using the url, and assigning to a new local directory (2nd argument)
+git clone https://github.com/DeisData/planets.git  ~/Desktop/new-planets
+
+# Notice the clone includes all of the version history, not just files!
+cd ~/Desktop/new-planets
+ls -a
+git status
+
+# A collaborator will push / pull files to / from GitHub following
+# the same procedures as above.
+
+
+
+########################
+# CONFLICTS
+#  What do I do when my changes conflict with someone else's?
+########################
+# You can practice this with two different terminals open, or with a partner!
+
+# If you work on an out-dated version of a file, and edit part of a file that your 
+# collaborator has also changed and pushed to GitHub, you will see "CONFLICT: Merge 
+# conflict". and instructions to pull the respository and merge changes within the 
+# conflicted file.
+
+# I demonstrate this in our class video for session 3.
+
+
+
