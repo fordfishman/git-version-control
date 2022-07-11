@@ -1,16 +1,31 @@
 # Session 1: Getting started!
 In this workshop, we are using **git** and [GitHub.com](https://github.com/).
 
-## Installation Instructions
-Follow the [Software Carpentry's Instructions](https://carpentries.github.io/workshop-template/#git) to install git for your operating system. 
-
 **Git** is a version control system that lets you track who made changes to what when and has options for easily updating a version of your work. 
 
 **GitHub.com** You will need a free account for part of this workshop.  We will follow the instruction to keep your email address private at GitHub.
 
 **Git Vocabulary**
-- Commit:
+- Commit: 
 - Repository:
+
+## Installation Instructions
+
+### Windows
+
+You will installing [Git Bash](https://gitforwindows.org/) (also called Git for Windows). Detailed instructions can be found via [Software Carpentries](https://carpentries.github.io/workshop-template/#shell).
+
+### MacOS
+
+Open Terminal. It should be located in `Applications/Utilities`. You use Spotlight to locate it as well (cmd+spacebar and type "Terminal").
+
+Type `which git` and press Return. If it prints a path (e.g. `/usr/bin/git`), Git is already installed. 
+
+If no path is printed, follow the instructions at [the Software Carpentries](https://carpentries.github.io/workshop-template/#git) for MacOS.
+
+### Linux
+
+Open the terminal. Type `which git` and press Return. If it prints a path (e.g. `/usr/bin/git`), git is already installed. If not, for Debian/Ubuntu run `sudo apt-get install git` and for Fedora run `sudo dnf install git`.
 
 ### Configure git global settings
 When we use Git on a new computer for the first time, we need to configure a few things. Below are a few examples of configurations we will set as we get started with Git:
