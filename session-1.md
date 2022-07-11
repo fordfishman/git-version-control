@@ -17,7 +17,7 @@ You will installing [Git Bash](https://gitforwindows.org/) (also called Git for 
 
 ### MacOS
 
-Open Terminal. It should be located in `Applications/Utilities`. You use Spotlight to locate it as well (cmd+spacebar and type "Terminal").
+Open Terminal. It should be located in `Applications/Utilities`. You use Spotlight to locate it as well (<kbd>cmd</kbd>+<kbd>spacebar</kbd> and type "Terminal").
 
 Type `which git` and press Return. If it prints a path (e.g. `/usr/bin/git`), Git is already installed. 
 
@@ -33,51 +33,62 @@ When we use Git on a new computer for the first time, we need to configure a few
 - what our preferred text editor is,
 - and that we want to use these settings globally (i.e. for every project).
 
-**MacOS**:  Open a bash shell under Applications > Utilities > Terminal
-
 **Windows**:  Open the git shell "Git Bash" you downloaded through the bash installation procedures, or run the command "bash" in your Command Prompt.
 
-**Linux**:  Use your terminal
+**MacOS**:  Open a bash shell in Terminal.
 
+**Linux**:  Use your terminal.
 
-In the bash shell, run the following commands (with your information):
+In the bash shell, run the following commands (with your information). The leading `$` indicates that the command should be run in `bash`. Do not insert an additional `$` in your own terminal. If the commands are successful, nothing will print to the terminal.
 
 **Name configuration**
 
-`$ git config --global user.name "Vlad Dracula"`
-
+```bash
+$ git config --global user.name "Inigo Montoya"
+```
 
 **Email configuration**
 - Log in to [GitHub.com](https://github.com)
 - Click on your profile icon at the top right corner
 - Go to Settings
 - Click on Emails in the left menu
-- Select the check box "Keep my email addresses private" and use the private github.com-supplied email listed in the cnnfiguration below.  You can highlight and copy it with ctrl+C, and paste to the command line with Ctrl+V.
+- Select the check box "Keep my email addresses private" and use the private github.com-supplied email listed in the cnnfiguration below.  You can highlight and copy it with <kbd>Ctrl</kbd>+<kbd>C</kbd> or <kbd>cmd</kbd>+<kbd>C</kbd> (Mac), and paste to the command line with <kbd>Ctrl</kbd>+<kbd>V</kbd> or <kbd>cmd</kbd>+<kbd>V</kbd>.
 
-`$ git config --global user.email "1234username@users.noreply.github.com"`
-
+sdadad 
+```bash
+$ git config --global user.email "1234username@users.noreply.github.com"
+```
 
 **Line Heading configuration**
 
 As with other keys, when you hit Return on your keyboard, your computer encodes this input as a character. Different operating systems use different character(s) to represent the end of a line. Because Git uses these characters to compare files, it may cause unexpected issues when editing a file on different machines. 
 
-*On macOS and Linux* `$ git config --global core.autocrlf input`
+*Windows*
+```bash 
+$ git config --global core.autocrlf true
+```
 
-*On Windows*. `$ git config --global core.autocrlf true`
+*MacOS and Linux* 
+```bash 
+$ git config --global core.autocrlf input
+```
 
 **Editor configuration**
 
 In these sessions, we will be using a basic editor called nano.  There are other ways to configure for more popular editors [here](http://swcarpentry.github.io/git-novice/02-setup/index.html).
-`$ git config --global core.editor "nano -w"`
+```bash
+$ git config --global core.editor "nano -w"
+```
 
-
-Check your settings at any time with:  `git config --list`
-
+Check your settings at any time with:  
+```bash
+$ git config --list
+```
 
 ## Commands to create and check on a repository
 - `git init`: makes a repostiory of all the subdirectories and files within the working directory.
-- `git status` shows what is in staging and was is being commited.
-- `git log` shows the history of commits
+- `git status`: shows what is in staging and was is being commited.
+- `git log`: shows the history of commits
 - `git add file_name`: Moves a file to staging.
 - `git commit -m "Detailed log message goes here."`: Commits files in staging to history and documents message to the log.
 
