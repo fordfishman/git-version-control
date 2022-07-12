@@ -136,6 +136,31 @@ To get this repository we have initialized onto our local machine we will clone 
 
 <br>
 
+Go back to your terminal. Create a new `GitHub` folder in your home directory by running:
+
+```bash
+$ mkdir ~/GitHub
+```
+
+This uses the Unix command `mkdir` (Make Directory) to create a new folder. We then want to go to that folder with the `cd` (Change Directory) command.
+
+```bash
+$ cd ~/GitHub
+```
+
+To clone your repository, run the following:
+
+```bash
+$ git clone https://github.com/{USERNAME}/{REPO-NAME}.git
+```
+
+Move to your newly cloned local repository and list the files with `ls` command.
+
+```bash
+$ cd {REPO-NAME}
+$ 
+```
+
 ## Commands to create and check on a repository
 - `git init`: makes a repostiory of all the subdirectories and files within the working directory.
 - `git status`: shows what is in staging and was is being commited.
