@@ -158,37 +158,49 @@ Move to your newly cloned local repository and list the files with `ls` command.
 
 ```bash
 $ cd {REPO-NAME}
-$ 
+$ ls
 ```
 
-## Commands to create and check on a repository
-- `git init`: makes a repostiory of all the subdirectories and files within the working directory.
+You should see the names of the files `LICENSE` and `README.md` printed to the terminal. 
+
+## Alter the README 
+
+You now have a local **downstream** repository on your machine. The remote GitHub repository is referred to as the **upstream** repository. If other users make changes reflected in the upstream repository, you will receive and implement them locally.
+
+We are going to write line to the README and commit that change to version control. In later sessions, we will push that change upstream to make it reflected in GitHub.
+
+First, we are going to use a text editor called `nano` to open `README.md`.
+
+```bash
+$ nano README.md
+```
+
+<br>
+
+![nano blank](img/nano1.png)
+
+<br>
+
+Tap the <kbd>&#8595;</kbd> key to get to a new line. Write whatever your heart desires ("Hello World!" is a classic). To save or "write" your changes, press <kbd>Ctrl</kbd>+<kbd>O</kbd>, and then hit <kbd>Return</kbd>. Press <kbd>Ctrl</kbd>+<kbd>X</kbd> to exit `nano`.
+
+<br>
+
+![nano blank](img/nano2.png)
+
+<br>
+
+START HERE
+
+### Important Git commands
 - `git status`: shows what is in staging and was is being commited.
 - `git log`: shows the history of commits
 - `git add file_name`: Moves a file to staging.
 - `git commit -m "Detailed log message goes here."`: Commits files in staging to history and documents message to the log.
 
+
+
 ### History of commands from today's session:
 ```bash
-# This is a comment.  Any text after a hashtag is not executed in the command line prompt.
-# Your command line is indicated by a $
-
-# Change directory (cd) to the desktop
-cd ~/Desktop
-
-# Make a new directory (mkdir) named planets
-mkdir planets
-
-# Change directory (cd) into the planets directory (also called a folder).
-cd planets
-
-# Tell Git to make planets a repository—a place where Git can store versions of our files:
-git init
- 
-# List files (ls) including hidden files (-a) in the directory
-ls -a
-# This will show us a new directory .git where version history is stored
-
 # Use nano editor to create a new file named mars.txt
 nano mars.txt
 
