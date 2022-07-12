@@ -3,13 +3,26 @@ In this workshop, we are using **git** and [GitHub.com](https://github.com/).
 
 **Git** is a version control system that lets you track who made changes to what when and has options for easily updating a version of your work. 
 
-**GitHub.com** You will need a free account for part of this workshop.  We will follow the instruction to keep your email address private at GitHub.
+**GitHub.com** You will need a free account for part of this workshop. We will follow the instruction to keep your email address private at GitHub.
 
 **Git Vocabulary**
-- Commit: 
-- Repository:
+- Commit: (noun) A recorded version of your project. (verb) To record a new version of your project.
+- Repository (or repo): where your files are stored, can be on your computer (local) or on GitHub's servers (remote)
+- pull: fetching commits from a remote repository and merging them with local changes
+- push: sending local commits to a remote repository
+  
+Definitions adapted from [git-scm.com](https://git-scm.com/docs/gitglossary)
+
+<br>
+
+## Register for a GitHub Account
+Go to [GitHub.com](https://github.com), register for an account, and verify it. 
+
+<br>
 
 ## Installation Instructions
+<br>
+
 
 ### Windows
 
@@ -27,6 +40,8 @@ If no path is printed, follow the instructions at [the Software Carpentries](htt
 
 Open the terminal. Type `which git` and press Return. If it prints a path (e.g. `/usr/bin/git`), git is already installed. If not, for Debian/Ubuntu run `sudo apt-get install git` and for Fedora run `sudo dnf install git`.
 
+<br>
+
 ### Configure git global settings
 When we use Git on a new computer for the first time, we need to configure a few things. Below are a few examples of configurations we will set as we get started with Git:
 - our name and email address,
@@ -41,10 +56,12 @@ When we use Git on a new computer for the first time, we need to configure a few
 
 In the bash shell, run the following commands (with your information). The leading `$` indicates that the command should be run in `bash`. Do not insert an additional `$` in your own terminal. If the commands are successful, nothing will print to the terminal.
 
+To use `git` commands, we use the syntax `git SOME_COMMAND`. We will be using `git config` with some added parameters to set up `git`.
+
 **Name configuration**
 
 ```bash
-$ git config --global user.name "Inigo Montoya"
+$ git config --global user.name "InigoMontoya"
 ```
 
 **Email configuration**
@@ -53,8 +70,7 @@ $ git config --global user.name "Inigo Montoya"
 - Go to Settings
 - Click on Emails in the left menu
 - Select the check box "Keep my email addresses private" and use the private github.com-supplied email listed in the cnnfiguration below.  You can highlight and copy it with <kbd>Ctrl</kbd>+<kbd>C</kbd> or <kbd>cmd</kbd>+<kbd>C</kbd> (Mac), and paste to the command line with <kbd>Ctrl</kbd>+<kbd>V</kbd> or <kbd>cmd</kbd>+<kbd>V</kbd>.
-
-sdadad 
+ 
 ```bash
 $ git config --global user.email "1234username@users.noreply.github.com"
 ```
@@ -84,6 +100,41 @@ Check your settings at any time with:
 ```bash
 $ git config --list
 ```
+<br>
+
+## Create a remote repository on GitHub
+
+Go to GitHub and create a new repository by clicking "New". 
+
+<br>
+
+![Make a repo](img/github_newrepo.png)
+
+<br>
+
+Give your repo a short but descriptive name with no spaces or special characters. Note that your account cannot have two repos with exactly the same name. 
+
+<br>
+
+![Name your repo](img/github_reponame.png)
+
+<br>
+
+You can choose whether or not your repository to be private. If you plan to collaborate with others, you are required to have a public repository unless you pay for a premium GitHub account.
+
+Make sure to initialize with a README, which will give general information about your repository. You can also initialize with a license, which defines what others can and cannot do with your code. 
+
+<br>
+
+## Clone the remote repository to your machine
+
+To get this repository we have initialized onto our local machine we will clone it, which copies its contents. Go to the repository you just made on GitHub. You will see a README.md file and a license file. Click on "Code", which opens a dropdown menu. Copy the HTTPS link, which will be `https://github.com/{USERNAME}/{REPO-NAME}.git`, with your username and repo name, respectively.
+
+<br>
+
+![clone repo](img/github_clone.png)
+
+<br>
 
 ## Commands to create and check on a repository
 - `git init`: makes a repostiory of all the subdirectories and files within the working directory.
@@ -93,7 +144,7 @@ $ git config --list
 - `git commit -m "Detailed log message goes here."`: Commits files in staging to history and documents message to the log.
 
 ### History of commands from today's session:
-```
+```bash
 # This is a comment.  Any text after a hashtag is not executed in the command line prompt.
 # Your command line is indicated by a $
 
