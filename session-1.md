@@ -8,8 +8,6 @@ In this workshop, we are using **git** and [GitHub.com](https://github.com/).
 **Git Vocabulary**
 - Commit: (noun) A recorded version of your project. (verb) To record a new version of your project.
 - Repository (or repo): where your files are stored, can be on your computer (local) or on GitHub's servers (remote)
-- pull: fetching commits from a remote repository and merging them with local changes
-- push: sending local commits to a remote repository
   
 Definitions adapted from [git-scm.com](https://git-scm.com/docs/gitglossary)
 
@@ -181,7 +179,7 @@ $ nano README.md
 
 <br>
 
-Tap the <kbd>&#8595;</kbd> key to get to a new line. Write whatever your heart desires ("Hello World!" is a classic). To save or "write" your changes, press <kbd>Ctrl</kbd>+<kbd>O</kbd>, and then hit <kbd>Return</kbd>. Press <kbd>Ctrl</kbd>+<kbd>X</kbd> to exit `nano`.
+Tap the <kbd>&#8595;</kbd> key to get to a new line. Type whatever your heart desires ("Hello World!" is a classic). To save or "write" your changes, press <kbd>Ctrl</kbd>+<kbd>O</kbd>, and then hit <kbd>Return</kbd>. Press <kbd>Ctrl</kbd>+<kbd>X</kbd> to exit `nano`.
 
 <br>
 
@@ -189,7 +187,32 @@ Tap the <kbd>&#8595;</kbd> key to get to a new line. Write whatever your heart d
 
 <br>
 
-START HERE
+Now that you've made a change, you can check the status of the repository.
+
+```bash
+$ git status
+```
+
+![git status](img/git_status.png)
+
+This command prints out a lot of information. It says we are on the main branch (more on this in the future). It says we are up to date with `origin/main`. This means thats GitHub doesn't have any commits that aren't present locally and vice versa. It then lists `README.md` in red as modified but not yet staged, as well the commands for how to stage it. Finally, it says that nothing has yet been added to commit yet.  
+
+We want to stage our modified file. Staging a file means we want to commit it. To do this, we'll use the `git stage` command.
+
+```bash
+$ git stage README.md
+```
+
+If we run `git status` again, we'll see that `README.md` is now staged for commit and in green text.
+
+![git add](img/git_add.png)
+
+Now we are ready to commit these changes. We are going to use `git commit` with a message flag (`-m`). The message we write should give a short description of changes you added in this commit.
+
+```bash
+$ git commit -m "Updated the README"
+```
+ADD MORE INFO
 
 ### Important Git commands
 - `git status`: shows what is in staging and was is being commited.
