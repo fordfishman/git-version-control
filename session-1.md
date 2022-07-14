@@ -19,12 +19,11 @@ Go to [GitHub.com](https://github.com), register for an account, and verify it.
 <br>
 
 ## Installation Instructions
-<br>
 
 
 ### Windows
 
-You will installing [Git Bash](https://gitforwindows.org/) (also called Git for Windows). Detailed instructions can be found via [Software Carpentries](https://carpentries.github.io/workshop-template/#shell).
+You will installing [Git Bash](https://gitforwindows.org/) (also called Git for Windows). Detailed instructions can be found via [the Software Carpentry](https://carpentries.github.io/workshop-template/#shell).
 
 ### MacOS
 
@@ -32,7 +31,7 @@ Open Terminal. It should be located in `Applications/Utilities`. You use Spotlig
 
 Type `which git` and press Return. If it prints a path (e.g. `/usr/bin/git`), Git is already installed. 
 
-If no path is printed, follow the instructions at [the Software Carpentries](https://carpentries.github.io/workshop-template/#git) for MacOS.
+If no path is printed, follow the instructions at [the Software Carpentry](https://carpentries.github.io/workshop-template/#git) for MacOS.
 
 ### Linux
 
@@ -56,13 +55,13 @@ In the bash shell, run the following commands (with your information). The leadi
 
 To use `git` commands, we use the syntax `git SOME_COMMAND`. We will be using `git config` with some added parameters to set up `git`.
 
-**Name configuration**
+#### **Name configuration**
 
 ```bash
 $ git config --global user.name "InigoMontoya"
 ```
 
-**Email configuration**
+#### **Email configuration**
 - Log in to [GitHub.com](https://github.com)
 - Click on your profile icon at the top right corner
 - Go to Settings
@@ -73,21 +72,21 @@ $ git config --global user.name "InigoMontoya"
 $ git config --global user.email "1234username@users.noreply.github.com"
 ```
 
-**Line Heading configuration**
+#### **Line Heading configuration**
 
 As with other keys, when you hit Return on your keyboard, your computer encodes this input as a character. Different operating systems use different character(s) to represent the end of a line. Because Git uses these characters to compare files, it may cause unexpected issues when editing a file on different machines. 
 
-*Windows*
+**Windows**
 ```bash 
 $ git config --global core.autocrlf true
 ```
 
-*MacOS and Linux* 
+**MacOS and Linux**
 ```bash 
 $ git config --global core.autocrlf input
 ```
 
-**Editor configuration**
+#### **Editor configuration**
 
 In these sessions, we will be using a basic editor called nano.  There are other ways to configure for more popular editors [here](http://swcarpentry.github.io/git-novice/02-setup/index.html).
 ```bash
@@ -161,6 +160,8 @@ $ ls
 
 You should see the names of the files `LICENSE` and `README.md` printed to the terminal. 
 
+<br>
+
 ## Alter the README 
 
 You now have a local **downstream** repository on your machine. The remote GitHub repository is referred to as the **upstream** repository. If other users make changes reflected in the upstream repository, you will receive and implement them locally.
@@ -197,6 +198,10 @@ $ git status
 
 This command prints out a lot of information. It says we are on the main branch (more on this in the future). It says we are up to date with `origin/main`. This means thats GitHub doesn't have any commits that aren't present locally and vice versa. It then lists `README.md` in red as modified but not yet staged, as well the commands for how to stage it. Finally, it says that nothing has yet been added to commit yet.  
 
+<br>
+
+### Stage modified file
+
 We want to stage our modified file. Staging a file means we want to commit it. To do this, we'll use the `git stage` command.
 
 ```bash
@@ -206,6 +211,8 @@ $ git stage README.md
 If we run `git status` again, we'll see that `README.md` is now staged for commit and in green text.
 
 ![git add](img/git_add.png)
+
+### Make a commit
 
 Now we are ready to commit these changes. We are going to use `git commit` with a message flag (`-m`). The message we write should give a short description of changes you added in this commit.
 
@@ -219,13 +226,28 @@ If we run `git status` again, we'll notice a few things.
 
 ![post commit](img/post_commit.png)
 
-
 It now tells us that we no longer have any changes to commit in our local repository. It also is telling us that we are ahead of the upstream repository on GitHub by 1 commit. This is because our changes have not yet been sent or "pushed" to that remote repository yet. We will do this next session. 
 
+<br>
 
 ## Recap: Important Git commands
+- `git config --global`: set up your settings across all your repos
+- `git clone`: copy a remote repository locally
 - `git status`: shows what is in staging and was is being commited.
 - `git add file_name`: Moves a file to staging.
 - `git commit -m "Detailed log message goes here."`: Commits files in staging to history and documents message to the log.
 
+<br>
+
+## Contact
+
+Please reach out to <dataservices@brandeis.edu> with any questions or concerns.
+
+<br>
+
 ## Resources
+- GitHub Docs: https://docs.github.com/en/get-started
+- Atlassian: https://www.atlassian.com/git/tutorials/setting-up-a-repository
+
+
+This workshop has been adapted from [the Software Carpentry](https://software-carpentry.org/).
