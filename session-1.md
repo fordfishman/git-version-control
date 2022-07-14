@@ -1,15 +1,13 @@
 # Session 1: Getting started!
-In this workshop, we are using **git** and [GitHub.com](https://github.com/).
+In this workshop, we are using **Git** and [GitHub.com](https://github.com/).
 
-**Git** is a version control system that lets you track who made changes to what when and has options for easily updating a version of your work. 
+**Git** is a version control system that lets you track who made changes, when those changes were made, and what they were. It allows for for easily updating a version of your work. 
 
-**GitHub.com** You will need a free account for part of this workshop. We will follow the instruction to keep your email address private at GitHub.
+**GitHub.com** allows you to host repositories online to collaborate with others on your projects. You will need a free account for part of this workshop. We will follow the instruction to keep your email address private at GitHub.
 
 **Git Vocabulary**
 - Commit: (noun) A recorded version of your project. (verb) To record a new version of your project.
-- Repository (or repo): where your files are stored, can be on your computer (local) or on GitHub's servers (remote)
-  
-Definitions adapted from [git-scm.com](https://git-scm.com/docs/gitglossary)
+- Repository (or repo): where your files are stored, can be on your computer (local) or on GitHub's servers (remote).
 
 <br>
 
@@ -18,8 +16,7 @@ Go to [GitHub.com](https://github.com), register for an account, and verify it.
 
 <br>
 
-## Installation Instructions
-
+## Git Installation Instructions
 
 ### Windows
 
@@ -27,7 +24,7 @@ You will installing [Git Bash](https://gitforwindows.org/) (also called Git for 
 
 ### MacOS
 
-Open Terminal. It should be located in `Applications/Utilities`. You use Spotlight to locate it as well (<kbd>cmd</kbd>+<kbd>spacebar</kbd> and type "Terminal").
+Open Terminal. It should be located in `Applications/Utilities`. You use Spotlight to locate it as well (<kbd>cmd</kbd>+<kbd>space</kbd> and type "Terminal").
 
 Type `which git` and press Return. If it prints a path (e.g. `/usr/bin/git`), Git is already installed. 
 
@@ -35,7 +32,7 @@ If no path is printed, follow the instructions at [the Software Carpentry](https
 
 ### Linux
 
-Open the terminal. Type `which git` and press Return. If it prints a path (e.g. `/usr/bin/git`), git is already installed. If not, for Debian/Ubuntu run `sudo apt-get install git` and for Fedora run `sudo dnf install git`.
+Open the terminal. Type `which git` and press Return. If it prints a path (e.g. `/usr/bin/git`), Git is already installed. If not, for Debian/Ubuntu run `sudo apt-get install git` and for Fedora run `sudo dnf install git`.
 
 <br>
 
@@ -43,7 +40,7 @@ Open the terminal. Type `which git` and press Return. If it prints a path (e.g. 
 When we use Git on a new computer for the first time, we need to configure a few things. Below are a few examples of configurations we will set as we get started with Git:
 - our name and email address,
 - what our preferred text editor is,
-- and that we want to use these settings globally (i.e. for every project).
+- and that we want to use these settings globally (i.e., for every project).
 
 **Windows**:  Open the git shell "Git Bash" you downloaded through the bash installation procedures, or run the command "bash" in your Command Prompt.
 
@@ -51,9 +48,9 @@ When we use Git on a new computer for the first time, we need to configure a few
 
 **Linux**:  Use your terminal.
 
-In the bash shell, run the following commands (with your information). The leading `$` indicates that the command should be run in `bash`. Do not insert an additional `$` in your own terminal. If the commands are successful, nothing will print to the terminal.
+In the bash shell, run the following commands (with your information). The leading `$` indicates that the command should be run in `bash`. Do not insert an additional `$` in your own terminal. If these configuration commands are successful, nothing will print to the terminal.
 
-To use `git` commands, we use the syntax `git SOME_COMMAND`. We will be using `git config` with some added parameters to set up `git`.
+To use `git` commands, we use the syntax `git SOME_COMMAND`. We will be using `git config` with some added parameters to set up `git`. We will also add the flag `--global` to make sure these settings apply to any of our future repositories. 
 
 #### **Name configuration**
 
@@ -66,7 +63,7 @@ $ git config --global user.name "InigoMontoya"
 - Click on your profile icon at the top right corner
 - Go to Settings
 - Click on Emails in the left menu
-- Select the check box "Keep my email addresses private" and use the private github.com-supplied email listed in the cnnfiguration below.  You can highlight and copy it with <kbd>Ctrl</kbd>+<kbd>C</kbd> or <kbd>cmd</kbd>+<kbd>C</kbd> (Mac), and paste to the command line with <kbd>Ctrl</kbd>+<kbd>V</kbd> or <kbd>cmd</kbd>+<kbd>V</kbd>.
+- Select the check box "Keep my email addresses private" and use the private github.com-supplied email listed in the configuration below.  You can highlight and copy it with <kbd>Ctrl</kbd>+<kbd>C</kbd> or <kbd>cmd</kbd>+<kbd>C</kbd> (Mac), and paste to the command line with <kbd>Ctrl</kbd>+<kbd>V</kbd> or <kbd>cmd</kbd>+<kbd>V</kbd>.
  
 ```bash
 $ git config --global user.email "1234username@users.noreply.github.com"
@@ -117,15 +114,15 @@ Give your repo a short but descriptive name with no spaces or special characters
 
 <br>
 
-You can choose whether or not your repository to be private. If you plan to collaborate with others, you are required to have a public repository unless you pay for a premium GitHub account.
+You can choose whether or not to make your repository to be private. If you plan to collaborate with others, you are required to have a public repository unless you pay for a premium GitHub account.
 
-Make sure to initialize with a README, which will give general information about your repository. You can also initialize with a license, which defines what others can and cannot do with your code. 
+Make sure to initialize with a README, which will give general information about your repository. You can also initialize with a license, which defines what others can and cannot do with your code. For more information, see [the Software Carpentry's primer on licenses](https://swcarpentry.github.io/git-novice/11-licensing/index.html).
 
 <br>
 
 ## Clone the remote repository to your machine
 
-To get this repository we have initialized onto our local machine we will clone it, which copies its contents. Go to the repository you just made on GitHub. You will see a README.md file and a license file. Click on "Code", which opens a dropdown menu. Copy the HTTPS link, which will be `https://github.com/{USERNAME}/{REPO-NAME}.git`, with your username and repo name, respectively.
+To get this repository onto our local machine, we will clone it, which copies its contents. Go to the repository you just made on GitHub. You will see a README.md file and a license file. Click on "Code", which opens a dropdown menu. Copy the HTTPS link, which will be `https://github.com/{USERNAME}/{REPO-NAME}.git`, with your username and repo name, respectively.
 
 <br>
 
@@ -145,7 +142,7 @@ This uses the Unix command `mkdir` (Make Directory) to create a new folder. We t
 $ cd ~/GitHub
 ```
 
-To clone your repository, run the following:
+To clone your repository, run the following, again inserting your link:
 
 ```bash
 $ git clone https://github.com/{USERNAME}/{REPO-NAME}.git
@@ -182,13 +179,15 @@ $ nano README.md
 
 Tap the <kbd>&#8595;</kbd> key to get to a new line. Type whatever your heart desires ("Hello World!" is a classic). To save or "write" your changes, press <kbd>Ctrl</kbd>+<kbd>O</kbd>, and then hit <kbd>Return</kbd>. Press <kbd>Ctrl</kbd>+<kbd>X</kbd> to exit `nano`.
 
+Note: use <kbd>Ctrl</kbd> regardless of your OS.
+
 <br>
 
 ![nano blank](img/nano2.png)
 
 <br>
 
-Now that you've made a change, you can check the status of the repository.
+Now that you've made a change, you can check the status of the repository with `git status`.
 
 ```bash
 $ git status
@@ -196,7 +195,7 @@ $ git status
 
 ![git status](img/git_status.png)
 
-This command prints out a lot of information. It says we are on the main branch (more on this in the future). It says we are up to date with `origin/main`. This means thats GitHub doesn't have any commits that aren't present locally and vice versa. It then lists `README.md` in red as modified but not yet staged, as well the commands for how to stage it. Finally, it says that nothing has yet been added to commit yet.  
+This command prints out a lot of information. It says we are on the main branch (more on this in the future). It says we are up to date with `origin/main`. This means thats GitHub doesn't have any commits that aren't present locally, and we don't have any local commits that aren't reflected in GitHub. It then lists `README.md` in red as modified but not yet staged, as well the commands for how to stage it. Finally, it says that nothing has yet been added to commit yet.  
 
 <br>
 
@@ -214,7 +213,7 @@ If we run `git status` again, we'll see that `README.md` is now staged for commi
 
 ### Make a commit
 
-Now we are ready to commit these changes. We are going to use `git commit` with a message flag (`-m`). The message we write should give a short description of changes you added in this commit.
+Now we are ready to commit these changes. We are going to use `git commit` with a message flag (`-m`). The message we write should give a short description of the changes you made in this commit.
 
 ```bash
 $ git commit -m "Updated the README"
