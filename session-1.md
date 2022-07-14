@@ -212,71 +212,20 @@ Now we are ready to commit these changes. We are going to use `git commit` with 
 ```bash
 $ git commit -m "Updated the README"
 ```
-ADD MORE INFO
 
-### Important Git commands
+The terminal will print out some information about your commit including how many files were changed and how many lines were inserted and deleted.
+
+If we run `git status` again, we'll notice a few things. 
+
+![post commit](img/post_commit.png)
+
+
+It now tells us that we no longer have any changes to commit in our local repository. It also is telling us that we are ahead of the upstream repository on GitHub by 1 commit. This is because our changes have not yet been sent or "pushed" to that remote repository yet. We will do this next session. 
+
+
+## Recap: Important Git commands
 - `git status`: shows what is in staging and was is being commited.
-- `git log`: shows the history of commits
 - `git add file_name`: Moves a file to staging.
 - `git commit -m "Detailed log message goes here."`: Commits files in staging to history and documents message to the log.
 
-
-
-### History of commands from today's session:
-```bash
-# Use nano editor to create a new file named mars.txt
-nano mars.txt
-
-  # Type the text below into the mars.txt file:
-  # Cold and dry, but everything is my favorite color
-  # Press ctrl+O to write out (save) the file
-  # Press Ctrl+X to exit the nano editor
-
-# See what's in the file with concatenate (cat)
-cat mars.txt
-
-# Check the status of the repository
-git status
-
-# Output: # # # # #
-# On branch master
-# Initial commit
-# Untracked files:
-#   (use "git add <file>..." to include in what will be committed)
-# # # # # # # # # #
-
-# The “untracked files” message means that there’s a file in the directory 
-# that Git isn’t keeping track of. 
-
-# Tell Git to track a file using git add:
-git add mars.txt
-
-# Now check the status:
-git status
-
-# Output: # # # # #
-# On branch master
-# Initial commit
-# Changes to be committed:
-#  (use "git rm --cached <file>..." to unstage)
-#	new file:   mars.txt
-# # # # # # # # # #
-
-# Commit the file(s) from staging into a copy permanently inside the special .git directory
-# Use -m to provide a short, descriptive, and specific comment for later
-$ git commit -m "Start notes on Mars as a base"
-
-git status
-
-# Output: # # # # #
-# On branch master
-# nothing to commit, working directory clean
-# # # # # # # # # #
-
-# it tells us everything is up to date. 
-
-# Check what we've done recently with the project's history log
-git log
-
-
-```
+## Resources
