@@ -54,15 +54,57 @@ If we are working with others on a project, often our local repository will be o
 
 ### Make changes to the README on GitHub
 
+To demonstrate how this might work, we are going to alter and commit a file on GitHub and then fetch and merge this commit locally.
+
+1. Go to your repository on GitHub.
+2. Click on `README.md` and then go into edit mode either by clicking the edit button (looks like a pencil) or by tapping <kbd>E</kbd>.
+3. Write something on the third line. 
+4. Scroll down and write a commit message. You don't need an extended description.
+5. Make sure "Commit directly to `main` branch is selected, and commit changes.
+
+Your change should be reflected in the README.
+
+### Retrieve changes locally
+
+Go back to terminal and run `git fetch` to retrieve the changes. The terminal will print out some information about the process.
 
 ```bash
 $ git fetch
+```
+
+The commit is now in our local system, but the change is not yet reflected in our file yet. We can see this by running `cat`, which will print out our file.
+
+```bash
+$ cat README.md
+```
+
+To view the differences between our local file and the new commit, we can run the `git diff` command with some specifications for the file we're interested in and the two sources of the file. 
+
+```
+$ git diff HEAD origin/main README.md
+```
+![git diff](img/git_diff.png)
+
+This command and the output are somewhat complicated, so let's step through them.
+
+- `HEAD` specifies our local version of the file
+- `origin/main` specifies the version of the file commited on GitHub. We'll get into exactly what this means later.
+- Putting `HEAD` and `origin/main` in the command followed by `README.md` means that we want to compare the differences between the two versions of the README.
+- The output labels the `HEAD` version as `a/README.md` and the `origin/main` version as `b/README.md`.
+- Lines marked as `-` are present in the local vile, and lines with `+` are the incoming version.
+
+The output shows a red `-` on a blank line and a green `+` on the line with change. This means that in our local file, there is a blank line where is text in the new version. This means that if we run `git merge`, this will cause the blank line to become text locally. 
+
+We can now merge the file. A summary will print after we do so.
+
+```bash
 $ git merge
 ```
 
-You should see a message stating that our local repository is already up to date, as no other commits have been made yet.
+![git merge](img/git_merge.png)
 
-*Note: The command `git pull` is equivalent to running `git fetch` followed by `git merge`, though it may lead to some unexpected behavior at times. We will discuss this later.*
+
+*Note: The command `git pull` is equivalent to running `git fetch` immediately followed by `git merge`, though it may lead to some unexpected behavior at times. We will discuss this later.*
 
 - `git init`: makes a repostiory of all the subdirectories and files within the working directory.
 - `git pull`: fetching commits from a remote repository and merging them with local changes
