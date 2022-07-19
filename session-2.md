@@ -1,4 +1,4 @@
-# Session 2: Interacting with GitHub and Branching
+# Session 2: Interacting with GitHub
 
 Today, you will be making more changes to your repository, as well as sending those changes to the remote upstream repository on GitHub. This is known as **pushing**. 
 
@@ -31,7 +31,7 @@ In recent years, GitHub has started to require users to use personal tokens in o
 6. Write a short note for what the token is used for (e.g., "Ford Fishman MacBook")
 7. (Optional) For maximum security, give an expiration to the token.
 8. Check the `repo` box. Make sure all the sub-boxes are checked, as well.
-9. Generate token, copy the key, and make sure to store it somewhere securely. You will need to paste it when we run `git push`.
+9. Generate token, copy the key, and make sure to store it somewhere securely. You will need to paste it into the terminal when we run `git push`.
 
 ## Pushing to GitHub
 Now that we've created the token, we can push our changes to GitHub.
@@ -103,10 +103,21 @@ $ git merge
 
 ![git merge](img/git_merge.png)
 
-
 *Note: The command `git pull` is equivalent to running `git fetch` immediately followed by `git merge`, though it may lead to some unexpected behavior at times. We will discuss this later.*
 
-- `git init`: makes a repostiory of all the subdirectories and files within the working directory.
-- `git pull`: fetching commits from a remote repository and merging them with local changes
-- `push`: sending local commits to a remote repository
+If we want to see a history of changes in this repository, you can use `git log`.
+
+```bash
+$ git log
+```
+
+![git log](img/git_log.png)
+
+This will print out information on the commit ID, the author of the commit, when the commit was made, and its description. You can hit <kbd>Enter</kbd> to scroll down or use the arrow keys to go either direction. Hit <kbd>Q</kbd> to exit this view.
+
+## Recap
+
+- `git push`: send local commits to a remote repository
+- `git fetch`: retrieve commits from a remote repository (GitHub)
+- `git merge`: and merging them with local changes
 - `git log`: shows the history of commits
